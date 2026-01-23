@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://diyfcyeikys2i"]
+
+[ext_resource type="Texture2D" uid="uid://o4q1woicocb7" path="res://icon.svg" id="1_a202f"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+texture = ExtResource("1_a202f")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.449319, 0.893371, 0, -0.893371, 0.449319, 0.00119055, 0.382533, 0.0592993)
+fov = 68.2065
