@@ -71,38 +71,19 @@ func _physics_process(_delta: float) -> void:
 	# camera -------------------------------------------------------------------------------------------------------------------------------------------------------
 	# rotating camera based on mouse movement
 	var zoomSlowdown = 1
-	#var zoomSlowdown = bowSlowdown
-	#if(zoomSlowdown<.5):
-	#	zoomSlowdown = .5
-	camera.transform = camera.transform.rotated(Vector3.UP, (get_viewport().get_mouse_position().x-300)*-global.sensitivity*zoomSlowdown)
-	var tempCamRotation = camera.transform.rotated(camera.transform.basis.x.normalized(), (get_viewport().get_mouse_position().y-300)*-global.sensitivity*zoomSlowdown)
-	#camera.transform = camera.transform.rotated(camera.transform.basis.x.normalized(), (get_viewport().get_mouse_position().y-300)*-sensitivity)
-	if abs(tempCamRotation.basis.get_euler().z) <= 3 and tempCamRotation.basis.get_euler().z < 0:
-		#print("yay")
-		#print(tempCamRotation.basis.get_euler().z)
-		camera.transform = tempCamRotation
-		#camera.transform.basis.from_euler(Vector3(camera.transform.basis.get_euler().x, camera.transform.basis.get_euler().y, -.00001), 3)
-	else:
-		#print("AAAAAAAAAAAAAA")
-		#print(tempCamRotation.basis.get_euler().z)
-		if tempCamRotation.basis.get_euler().x > 0:
-			camera.transform.basis.from_euler(Vector3(PI/2, camera.transform.basis.get_euler().y, -.00001), 3)
-			
-	# rotating the point the camera revolves around & making sure to avoid weirdness
-	var tempRotationAngle: float = Vector3(0,0,1).signed_angle_to(Vector3(-camera.basis.z.x, 0, -camera.basis.z.z), Vector3(0,1,0))
-	if (tempRotationAngle>0) != (camRotationAngle>0) and not angleChange:
-		if(tempRotationAngle>2):
-			camRotationAngle = PI
-		elif(tempRotationAngle<-2):
-			camRotationAngle = -PI
-		else: 
-			camRotationAngle = 0
-		angleChange = true
-	else:
-		camRotationAngle = tempRotationAngle
-		angleChange = false
-	
-	
+	var mouse_input_x = (get_viewport().get_mouse_position().x - 300) * -global.sensitivity * zoomSlowdown
+	var mouse_input_y = (get_viewport().get_mouse_position().y - 300) * -global.sensitivity * zoomSlowdown
+	# 1. Rotate the player horizontally
+	rotate_y(mouse_input_x) 
+	# 2. Rotate only the camera vertically
+	camera.rotation.x = clamp(camera.rotation.x+mouse_input_y,-PI/2,PI/2)
+	#print(camera.rotation.x)
+	#var tempCamRotation = camera.transform.rotated(camera.transform.basis.x.normalized(), mouse_input_y)
+	#if abs(tempCamRotation.basis.get_euler().z) <= 3 and tempCamRotation.basis.get_euler().z < 0:
+		#camera.transform = tempCamRotation
+	#else:
+		#if tempCamRotation.basis.get_euler().x > 0:
+			#camera.transform.basis.from_euler(Vector3(PI/2, camera.transform.basis.get_euler().y, -.00001), 3)
 	# changing camera target point based on if its clipping into a wall
 	var tempCamTarget = camTargetPos
 	camVertRay.force_raycast_update()
@@ -170,26 +151,17 @@ func _physics_process(_delta: float) -> void:
 	# movement -------------------------------------------------------------------------------------------------------------------------------------------------------
 	# moving if pressing a button
 	if (Input.get_axis("backward", "forward") != 0 or Input.get_axis("right", "left") != 0):
-		# movement normalized so diagonal isn't faster than straight
-		var targetMovement: Vector3 = Vector3(Input.get_axis("left", "right"), 0, Input.get_axis("forward", "backward")).normalized() * speed
-		#rotating target movement
-		var camDiff: Vector3 = camera.position-camRotatedTarget
-		camDiff.y = 0
-		var camAngle = Vector3(0,0,1).signed_angle_to(camDiff, Vector3(0,1,0))
-		targetMovement = targetMovement.rotated(Vector3.UP, camAngle)
+	# Get input direction
+		var input_dir = Vector2(Input.get_axis("right", "left"), Input.get_axis("backward", "forward")).normalized()
+		#  direction relative to the player's current facing (which follows the mouse)
+		var targetDirection = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized() #dir is unit vector
+		var targetMovement = targetDirection * speed
+		# Sync the model to the player body (keeping it forward)
 		
-		#rotating model based off of rotated movement
-		var moveAngle = Vector3(0,0,1).signed_angle_to(targetMovement, Vector3(0,1,0))
-		model.basis = model.basis.orthonormalized().slerp(Basis(Vector3.UP, moveAngle), rotationSpeed).scaled(modelScale)
-		
-		# adding in vertical velocity cuz it would've messed up the normalization
 		targetMovement.y += normalVelocity.y 
 		normalVelocity = normalVelocity.move_toward(targetMovement, movementChangeRate)
-		
 	else: # stopping
 		normalVelocity = normalVelocity.move_toward(Vector3(0, normalVelocity.y, 0), movementChangeRate)
-		var moveAngle = Vector3(0,0,1).signed_angle_to(Vector3(model.basis.z.x, 0, model.basis.z.z), Vector3(0,1,0))
-		model.basis = model.basis.orthonormalized().slerp(Basis(Vector3.UP, moveAngle).orthonormalized(), rotationSpeed).scaled(modelScale)
 	
 	# setting velocity & movin/slidin
 	velocity = normalVelocity
