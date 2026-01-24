@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://d1j1wx1c0fkfy"]
+
+[ext_resource type="Script" uid="uid://btq87o1xa24wf" path="res://player.gd" id="1_4flbx"]
+[ext_resource type="PackedScene" uid="uid://ccva1px67abyd" path="res://hooman.blend" id="2_onrkg"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_onrkg"]
+
+[node name="Player" type="CharacterBody3D"]
+collision_layer = 2
+script = ExtResource("1_4flbx")
+
+[node name="PlayerCollision" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_onrkg")
+
+[node name="PlayerModel" parent="." instance=ExtResource("2_onrkg")]
+transform = Transform3D(0.505, 0, 0, 0, 0.505, 0, 0, 0, 0.505, 0, 0, 0)
+
+[node name="CameraRay" type="RayCast3D" parent="."]
+
+[node name="CamVertRay" type="RayCast3D" parent="."]
+
+[node name="CamHorRay" type="RayCast3D" parent="."]
+
+[node name="PlayerCamera" type="Camera3D" parent="."]
