@@ -13,7 +13,7 @@ script = ExtResource("1_4flbx")
 shape = SubResource("CapsuleShape3D_onrkg")
 
 [node name="PlayerModel" parent="." instance=ExtResource("2_onrkg")]
-transform = Transform3D(0.505, 0, 0, 0, 0.505, 0, 0, 0, 0.505, -0.00711715, 1.19209e-07, 0.00773889)
+transform = Transform3D(0.503078, 0, 0.0440136, 0, 0.505, 0, -0.0440136, 0, 0.503078, -0.00711715, 1.19209e-07, 0.00773889)
 
 [node name="CameraRay" type="RayCast3D" parent="."]
 

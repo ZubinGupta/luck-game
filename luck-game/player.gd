@@ -163,6 +163,11 @@ func _physics_process(_delta: float) -> void:
 	else: # stopping
 		normalVelocity = normalVelocity.move_toward(Vector3(0, normalVelocity.y, 0), movementChangeRate)
 	
+	if(!is_on_floor()):
+		normalVelocity += gravity
+	elif(Input.is_action_just_pressed("jump")):
+		normalVelocity.y = jumpAmount
+	
 	# setting velocity & movin/slidin
 	velocity = normalVelocity
 	move_and_slide()
