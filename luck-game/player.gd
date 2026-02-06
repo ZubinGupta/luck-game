@@ -54,6 +54,7 @@ func _ready() -> void:
 	#fixReticle() #so the ui doesnt flash to the top left on reload
 
 func _physics_process(_delta: float) -> void:
+	global.playerPos = position
 	#fixReticle()                                                               
 	if Input.is_action_just_pressed("pause"):
 		global.paused = !global.paused
