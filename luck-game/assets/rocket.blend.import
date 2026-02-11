@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://ccva1px67abyd"
-path="res://.godot/imported/hooman.blend-166180a490fbb2b08b397d60dcfca3e2.scn"
+uid="uid://c4jfxi8adhu31"
+path="res://.godot/imported/rocket.blend-92ff539ca61aa135d7846209f2677521.scn"
 
 [deps]
 
-source_file="res://hooman.blend"
-dest_files=["res://.godot/imported/hooman.blend-166180a490fbb2b08b397d60dcfca3e2.scn"]
+source_file="res://assets/rocket.blend"
+dest_files=["res://.godot/imported/rocket.blend-92ff539ca61aa135d7846209f2677521.scn"]
 
 [params]
 

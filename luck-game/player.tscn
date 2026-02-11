@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://d1j1wx1c0fkfy"]
 
 [ext_resource type="Script" uid="uid://btq87o1xa24wf" path="res://player.gd" id="1_4flbx"]
-[ext_resource type="PackedScene" uid="uid://ccva1px67abyd" path="res://hooman.blend" id="2_onrkg"]
+[ext_resource type="PackedScene" uid="uid://ccva1px67abyd" path="res://assets/hooman.blend" id="2_onrkg"]
 [ext_resource type="PackedScene" uid="uid://c07iarlvuv2b6" path="res://rocketLauncher.tscn" id="3_i3pqv"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_onrkg"]

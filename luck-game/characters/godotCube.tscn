@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://c6tcoddrv5f0d"]
 
-[ext_resource type="Texture2D" uid="uid://o4q1woicocb7" path="res://icon.svg" id="1_nivvq"]
 [ext_resource type="Script" uid="uid://bw2qba3vxrqlg" path="res://characters/godot_cube.gd" id="1_xg2e3"]
+[ext_resource type="Texture2D" uid="uid://bbaeofewnuh21" path="res://assets/textures/nicoFace.jpg" id="2_6754e"]
 [ext_resource type="PackedScene" uid="uid://ccpwwdp2s7tgm" path="res://assets/godotCube.blend" id="2_xg2e3"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6754e"]
@@ -11,8 +11,9 @@ collision_layer = 4
 script = ExtResource("1_xg2e3")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0, -0.501)
-texture = ExtResource("1_nivvq")
+transform = Transform3D(0.169, 0, 0, 0, 0.145, 0, 0, 0, 0.145, 0, 0, -0.501)
+flip_h = true
+texture = ExtResource("2_6754e")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_6754e")
