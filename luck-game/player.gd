@@ -32,6 +32,9 @@ var gravity: Vector3 = Vector3(0, -1, 0) # how much gravity is there
 var useGravity: bool = true # if gravity is being added to the player's velocity
 #var bowSlowdown: float = 1 # a percentage (1=normal, anything else is slower)
 
+# weapon
+var weapon: CharacterBody3D = null
+
 # misc
 @onready
 var model: Node3D = $PlayerModel # the player's model
@@ -52,6 +55,12 @@ func _ready() -> void:
 	#reticle.position = get_viewport().size / 2
 	#Set the default checkpoint to where the player starts in the scene
 	#fixReticle() #so the ui doesnt flash to the top left on reload
+	assignWeapon("rocketLauncher")
+
+func assignWeapon(name: String) -> void:
+	var loaded: PackedScene = load("res://"+name+".tscn")
+	weapon = loaded.instantiate()
+	add_child(weapon)
 
 func _physics_process(_delta: float) -> void:
 	global.playerPos = position

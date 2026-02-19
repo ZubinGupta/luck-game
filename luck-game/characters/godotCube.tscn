@@ -6,7 +6,7 @@
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6754e"]
 
-[node name="godotCube" type="CharacterBody3D"]
+[node name="nicoCube" type="CharacterBody3D"]
 collision_layer = 4
 script = ExtResource("1_xg2e3")
 
