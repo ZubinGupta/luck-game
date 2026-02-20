@@ -9,7 +9,7 @@ height = 1.79587
 
 [node name="RocketAttack" type="CharacterBody3D"]
 collision_layer = 0
-collision_mask = 3
+collision_mask = 0
 script = ExtResource("1_ntike")
 
 [node name="rocket" parent="." instance=ExtResource("1_gbcxw")]
@@ -18,3 +18,14 @@ transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
 [node name="RocketCollision" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0.101027)
 shape = SubResource("CapsuleShape3D_gbcxw")
+
+[node name="Hitbox" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 5
+
+[node name="RocketCollision" type="CollisionShape3D" parent="Hitbox"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0.101027)
+shape = SubResource("CapsuleShape3D_gbcxw")
+
+[connection signal="area_entered" from="Hitbox" to="." method="kaboom"]
+[connection signal="body_entered" from="Hitbox" to="." method="kaboom"]
