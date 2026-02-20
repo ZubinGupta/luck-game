@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://ci07742ebslep"]
+
+[ext_resource type="Script" uid="uid://ds7yq6yqmkmre" path="res://weapons/arrow.gd" id="1_c5b7j"]
+[ext_resource type="PackedScene" uid="uid://yvsd8nbnmy3e" path="res://assets/arrow.glb" id="1_lxtw5"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_c5b7j"]
+
+[node name="Arrow" type="CharacterBody3D"]
+collision_layer = 0
+collision_mask = 5
+script = ExtResource("1_c5b7j")
+
+[node name="arrow" parent="." instance=ExtResource("1_lxtw5")]
+transform = Transform3D(4.37114e-09, 3.665, -4.52987e-09, 0.1, -1.60202e-07, -1.32349e-23, -6.60024e-16, -5.534e-07, -0.03, 0, 0, -0.179229)
+
+[node name="arrow2" parent="." instance=ExtResource("1_lxtw5")]
+transform = Transform3D(4.37114e-09, 3.665, -4.52987e-09, 0.1, -1.60202e-07, -1.32349e-23, -6.60024e-16, -5.534e-07, -0.03, -0.0185289, 0, -0.179229)
+
+[node name="arrow3" parent="." instance=ExtResource("1_lxtw5")]
+transform = Transform3D(4.37114e-09, 3.665, -4.52987e-09, 0.1, -1.60202e-07, -1.32349e-23, -6.60024e-16, -5.534e-07, -0.03, 0.0168088, 0, -0.179229)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.225, 0, 0, 0, -1.39876e-08, -0.225, 0, 0.32, -9.83506e-09, 0, 0, -0.0386373)
+shape = SubResource("CapsuleShape3D_c5b7j")
