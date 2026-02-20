@@ -58,7 +58,7 @@ func _ready() -> void:
 	assignWeapon("rocketLauncher")
 
 func assignWeapon(name: String) -> void:
-	var loaded: PackedScene = load("res://"+name+".tscn")
+	var loaded: PackedScene = load("res://weapons/"+name+".tscn")
 	weapon = loaded.instantiate()
 	add_child(weapon)
 
