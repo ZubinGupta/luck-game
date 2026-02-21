@@ -1,17 +1,32 @@
-[gd_scene load_steps=4 format=3 uid="uid://vefo476ow1s7"]
+[gd_scene load_steps=7 format=3 uid="uid://vefo476ow1s7"]
 
 [ext_resource type="Script" uid="uid://dmpxu1n7wtljv" path="res://weapons/explosion.gd" id="1_t4ilm"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_23upt"]
 albedo_color = Color(1, 0.854902, 0.235294, 1)
+emission_enabled = true
+emission = Color(0.883033, 0.725227, 0.323225, 1)
 
 [sub_resource type="SphereMesh" id="SphereMesh_pfoup"]
 material = SubResource("StandardMaterial3D_23upt")
 radius = 3.0
 height = 6.0
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_t4ilm"]
+radius = 3.74712
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t4ilm"]
+albedo_color = Color(0.778009, 0.295186, 0.279049, 1)
+emission_enabled = true
+emission = Color(0.984314, 0, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_23upt"]
+material = SubResource("StandardMaterial3D_t4ilm")
+radius = 1.0
+height = 2.0
+
 [node name="Explosion" type="MeshInstance3D"]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
 transparency = 0.5
 cast_shadow = 0
 lod_bias = 0.001
@@ -19,6 +34,17 @@ mesh = SubResource("SphereMesh_pfoup")
 script = ExtResource("1_t4ilm")
 
 [node name="Lifespan" type="Timer" parent="."]
-wait_time = 0.1
+wait_time = 0.25
+
+[node name="Hitbox" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="HitboxCollision" type="CollisionShape3D" parent="Hitbox"]
+shape = SubResource("SphereShape3D_t4ilm")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_23upt")
 
 [connection signal="timeout" from="Lifespan" to="." method="_on_lifespan_timeout"]
+[connection signal="body_entered" from="Hitbox" to="." method="onHit"]

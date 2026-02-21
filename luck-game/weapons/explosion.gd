@@ -1,10 +1,20 @@
 extends MeshInstance3D
 @onready var lifespan = $Lifespan
 
+var special: bool = false
+
 func _ready() -> void:
 	lifespan.start()
 	
 
 
 func _on_lifespan_timeout() -> void:
-	queue_free()
+	if(is_inside_tree()):
+		queue_free()
+
+
+func onHit(_body: Node3D):
+	if(special):
+		$"../Player".knockbackVelocity = Vector3(0, 60, 0)
+	else:
+		$"../Player".knockbackVelocity = ($"../Player".global_position-global_position).normalized()*40*Vector3(1,0,1) + Vector3(0, 20, 0)
