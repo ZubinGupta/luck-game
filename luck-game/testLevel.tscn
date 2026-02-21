@@ -52,6 +52,4 @@ metadata/_editor_floor_ = Vector3(0, -2, 0)
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.849476, 0.295227, -0.4373, 0.000101724, 0.828714, 0.559672, 0.527627, -0.475473, 0.703943, -18.02, 26.47, 42.3)
 
-[node name="godotCube" parent="." instance=ExtResource("4_oos0n")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0537815, 2.58454, 2.00136)
-script = null
+[node name="nicoCube" parent="." instance=ExtResource("4_oos0n")]

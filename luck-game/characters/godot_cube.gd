@@ -1,1 +1,16 @@
 extends CharacterBody3D
+const SPEED = 2
+var health := 10
+
+func _physics_process(_delta: float) -> void:
+	var target = global.playerPos
+	target.y = global_position.y
+	look_at(target)
+	var direction = global_position.direction_to(target)
+	velocity = direction * SPEED
+	move_and_slide()
+
+func take_damage(amount: int):
+	health -= amount
+	if(health <= 0):
+		queue_free()
