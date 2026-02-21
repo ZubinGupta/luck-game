@@ -3,11 +3,11 @@
 [ext_resource type="PackedScene" uid="uid://w5yfiuslomn" path="res://assets/bow.glb" id="1_tgp4v"]
 [ext_resource type="Script" uid="uid://6fpa6vn3fx7v" path="res://weapons/bow.gd" id="1_tnl5s"]
 
-[node name="CharacterBody3D" type="CharacterBody3D"]
+[node name="Bow" type="CharacterBody3D"]
 script = ExtResource("1_tnl5s")
 
 [node name="bow" parent="." instance=ExtResource("1_tgp4v")]
-transform = Transform3D(-1.31134e-09, -0.03, 0, -0.03, 1.31134e-09, 2.62268e-09, -2.62268e-09, 1.14641e-16, -0.03, -0.239317, 0.872, 0.232593)
+transform = Transform3D(-1.31134e-09, -0.03, 0, -0.03, 1.31134e-09, 2.62268e-09, -2.62268e-09, 1.14641e-16, -0.03, -0.630283, 0.872, 0.14643)
 
 [node name="ArrowCooldown" type="Timer" parent="."]
 

@@ -13,5 +13,5 @@ func _physics_process(delta: float) -> void:
 		#rocket.rotate_y(basis.z.signed_angle_to(-$"../PlayerCamera".basis.z, Vector3.RIGHT))
 		#rocket.rotation = $"../PlayerCamera".rotation
 		rocket.global_position = global_position
-		
+		$AttackTimer.start()
 		
