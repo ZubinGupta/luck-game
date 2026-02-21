@@ -4,8 +4,8 @@
 [ext_resource type="Script" uid="uid://bb80fy4r3q47r" path="res://weapons/rocketAttack.gd" id="1_ntike"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gbcxw"]
-radius = 0.466603
-height = 1.62099
+radius = 0.340359
+height = 1.79587
 
 [node name="RocketAttack" type="CharacterBody3D"]
 collision_layer = 0
