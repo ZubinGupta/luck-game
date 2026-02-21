@@ -31,6 +31,7 @@ var jumpAmount: float = 24 # how much you jump
 var gravity: Vector3 = Vector3(0, -1, 0) # how much gravity is there
 var useGravity: bool = true # if gravity is being added to the player's velocity
 #var bowSlowdown: float = 1 # a percentage (1=normal, anything else is slower)
+var knockbackVelocity: Vector3 = Vector3.ZERO
 
 # weapon
 var weapon: CharacterBody3D = null
@@ -177,9 +178,13 @@ func _physics_process(_delta: float) -> void:
 		normalVelocity += gravity
 	elif(Input.is_action_just_pressed("jump")):
 		normalVelocity.y = jumpAmount
+	elif normalVelocity.y < 0:
+		normalVelocity.y = 0
 	
+	knockbackVelocity = knockbackVelocity.move_toward(Vector3.ZERO, 1)
+	print(knockbackVelocity)
 	# setting velocity & movin/slidin
-	velocity = normalVelocity
+	velocity = normalVelocity + knockbackVelocity
 	move_and_slide()
 	
 	# setting mouse position at the end of the frame
