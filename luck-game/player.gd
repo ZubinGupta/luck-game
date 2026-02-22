@@ -182,7 +182,7 @@ func _physics_process(_delta: float) -> void:
 		normalVelocity.y = 0
 	
 	knockbackVelocity = knockbackVelocity.move_toward(Vector3.ZERO, 1)
-	print(knockbackVelocity)
+	#print(knockbackVelocity)
 	# setting velocity & movin/slidin
 	velocity = normalVelocity + knockbackVelocity
 	move_and_slide()
