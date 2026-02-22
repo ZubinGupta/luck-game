@@ -11,6 +11,7 @@ func _physics_process(_delta: float) -> void:
 	move_and_slide()
 
 func take_damage(amount: int):
+	print("Took "+str(amount)+" dmg")
 	health -= amount
 	if(health <= 0):
 		queue_free()

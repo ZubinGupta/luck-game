@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://vefo476ow1s7"]
+[gd_scene load_steps=7 format=3 uid="uid://vefo476ow1s7"]
 
 [ext_resource type="Script" uid="uid://dmpxu1n7wtljv" path="res://weapons/explosion.gd" id="1_t4ilm"]
 
@@ -7,12 +7,22 @@ radius = 3.0
 height = 6.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_23upt"]
-albedo_color = Color(1, 1, 0, 1)
+albedo_color = Color(1, 1, 0, 0.607843)
 emission_enabled = true
 emission = Color(0.945098, 0.521569, 0.223529, 1)
 emission_energy_multiplier = 1.9
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t4ilm"]
+albedo_color = Color(0.988235, 0.968627, 0.180392, 1)
+emission_enabled = true
+emission = Color(0.84956, 1.99743e-06, 3.85046e-07, 1)
+emission_energy_multiplier = 1.71
+
+[sub_resource type="SphereMesh" id="SphereMesh_23upt"]
+material = SubResource("StandardMaterial3D_t4ilm")
+
 [sub_resource type="SphereShape3D" id="SphereShape3D_t4ilm"]
+radius = 0.536779
 
 [node name="Explosion" type="Area3D"]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
@@ -21,14 +31,28 @@ collision_mask = 5
 script = ExtResource("1_t4ilm")
 
 [node name="Lifespan" type="Timer" parent="."]
-wait_time = 0.1
+wait_time = 0.25
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("SphereMesh_t4ilm")
 surface_material_override/0 = SubResource("StandardMaterial3D_23upt")
 
+[node name="red" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+mesh = SubResource("SphereMesh_23upt")
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(6.065, 0, 0, 0, 6.065, 0, 0, 0, 6.065, 0, 0, 0)
 shape = SubResource("SphereShape3D_t4ilm")
 
+[node name="PlayerCheck" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerCheck"]
+transform = Transform3D(6.065, 0, 0, 0, 6.065, 0, 0, 0, 6.065, 0, 0, 0)
+shape = SubResource("SphereShape3D_t4ilm")
+
+[connection signal="body_entered" from="." to="." method="hitEnemy"]
 [connection signal="timeout" from="Lifespan" to="." method="_on_lifespan_timeout"]
+[connection signal="body_entered" from="PlayerCheck" to="." method="onHit"]

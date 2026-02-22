@@ -15,3 +15,14 @@ func _physics_process(delta: float) -> void:
 		rocket.global_position = global_position
 		$AttackTimer.start()
 		
+
+	if Input.is_action_just_pressed("special") && $SpecialTimer.is_stopped():
+		var rocket = attack.instantiate()
+		get_tree().current_scene.add_child(rocket)
+		rocket.look_at(Vector3.UP)
+		#rocket.rotate_y(basis.z.signed_angle_to(-$"../PlayerCamera".basis.z, Vector3.RIGHT))
+		#rocket.rotation = $"../PlayerCamera".rotation
+		rocket.global_position = global_position
+		rocket.special = true
+		$SpecialTimer.start()
+		
