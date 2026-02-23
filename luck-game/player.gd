@@ -56,7 +56,7 @@ func _ready() -> void:
 	#reticle.position = get_viewport().size / 2
 	#Set the default checkpoint to where the player starts in the scene
 	#fixReticle() #so the ui doesnt flash to the top left on reload
-	assignWeapon("rocketLauncher")
+	assignWeapon("spear")
 
 func assignWeapon(name: String) -> void:
 	var loaded: PackedScene = load("res://weapons/"+name+".tscn")

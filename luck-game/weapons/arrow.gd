@@ -9,7 +9,6 @@ func _physics_process(delta: float) -> void:
 
 
 func _on_hitbox_body_entered(body: Node3D) -> void:
-	print(body)
 	if(body.has_method("take_damage")):
 		body.take_damage(20)
 	queue_free()
