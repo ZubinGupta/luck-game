@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dy040acq4161r"]
+[gd_scene load_steps=6 format=3 uid="uid://dy040acq4161r"]
 
 [ext_resource type="PackedScene" uid="uid://5vkmuwtteeaq" path="res://assets/spear.blend" id="1_7jbvn"]
 [ext_resource type="Script" uid="uid://435mb6ffeu7k" path="res://weapons/spear.gd" id="1_qwioj"]
+[ext_resource type="PackedScene" uid="uid://cva5syaat45cl" path="res://characters/ninja.tscn" id="3_3p0se"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qwioj"]
 size = Vector3(0.0839844, 1, 0.0410156)
@@ -34,5 +35,8 @@ shape = SubResource("CapsuleShape3D_qwioj")
 [node name="Cooldown" type="Timer" parent="."]
 wait_time = 0.3
 one_shot = true
+
+[node name="Ninja" parent="." instance=ExtResource("3_3p0se")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.10804, -0.334499, 1.22014)
 
 [connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]

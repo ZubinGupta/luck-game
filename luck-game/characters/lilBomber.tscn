@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://glab2yy2kae8"]
+
+[ext_resource type="Script" uid="uid://b23dbv5i34ggu" path="res://characters/lil_bomber.gd" id="1_j8hlw"]
+[ext_resource type="PackedScene" uid="uid://chm1tif3d14bg" path="res://assets/lilBomber.blend" id="1_xrn4o"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xrn4o"]
+
+[node name="LilBomber" type="CharacterBody3D"]
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_j8hlw")
+
+[node name="lilBomber" parent="." instance=ExtResource("1_xrn4o")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, -0.454917, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1.94, 0, 0, 0, 1.94, 0, 0, 0, 1.94, 0, 1.22976, 0)
+shape = SubResource("CapsuleShape3D_xrn4o")
+
+[node name="Hitbox" type="Area3D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Hitbox"]
+transform = Transform3D(2.055, 0, 0, 0, 2.055, 0, 0, 0, 2.055, 0, 1.22976, 0)
+shape = SubResource("CapsuleShape3D_xrn4o")
+
+[connection signal="body_entered" from="Hitbox" to="." method="hitPlayer"]
