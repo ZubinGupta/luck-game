@@ -18,7 +18,7 @@ transform = Transform3D(1.94, 0, 0, 0, 1.94, 0, 0, 0, 1.94, 0, 1.22976, 0)
 shape = SubResource("CapsuleShape3D_xrn4o")
 
 [node name="Hitbox" type="Area3D" parent="."]
-collision_layer = 4
+collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Hitbox"]
