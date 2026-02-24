@@ -8,8 +8,16 @@ func _physics_process(_delta: float) -> void:
 	look_at(target)
 	var direction = global_position.direction_to(target)
 	velocity = direction * SPEED
+	
+	if not is_on_floor():
+		velocity.y += -1
+	else:
+		velocity.y = 0
+	
+	print(velocity)
 	move_and_slide()
 
+	
 func take_damage(amount: int):
 	print("Took "+str(amount)+" dmg")
 	health -= amount

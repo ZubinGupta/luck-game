@@ -28,4 +28,4 @@ func onHit(_body: Node3D):
 
 func hitEnemy(body: Node3D) -> void:
 	if(body.has_method("take_damage")):
-			body.take_damage(10)
+			body.take_damage(30)

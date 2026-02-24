@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://b8475lrmp27mm"]
+
+[ext_resource type="Script" uid="uid://sx8123s5vmpu" path="res://characters/nikomancer.gd" id="1_innun"]
+[ext_resource type="PackedScene" uid="uid://cwo8p3aw50tto" path="res://assets/witch.blend" id="1_p5lj5"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_p5lj5"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_innun"]
+radius = 0.551247
+
+[node name="Nikomancer" type="CharacterBody3D"]
+collision_layer = 4
+script = ExtResource("1_innun")
+
+[node name="witch" parent="." instance=ExtResource("1_p5lj5")]
+transform = Transform3D(-0.5, 0, -4.37114e-08, 0, 0.5, 0, 4.37114e-08, 0, -0.5, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_p5lj5")
+
+[node name="Damagebox" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Damagebox"]
+shape = SubResource("CapsuleShape3D_innun")
+
+[node name="SpawnTimer" type="Timer" parent="."]
+wait_time = 7.0
+autostart = true
+
+[connection signal="body_entered" from="Damagebox" to="." method="hitPlayer"]
+[connection signal="timeout" from="SpawnTimer" to="." method="spawnNico"]

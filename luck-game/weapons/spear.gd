@@ -32,5 +32,5 @@ func thrust(delta: float):
 
 func _on_hitbox_body_entered(body: Node3D) -> void:
 	if(body.has_method("take_damage") && active == true):
-		body.take_damage(20)
+		body.take_damage(15)
 	

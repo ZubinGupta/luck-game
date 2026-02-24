@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bw2qba3vxrqlg" path="res://characters/godot_cube.gd" id="1_xg2e3"]
 [ext_resource type="Texture2D" uid="uid://bbaeofewnuh21" path="res://assets/textures/nicoFace.jpg" id="2_6754e"]
-[ext_resource type="PackedScene" uid="uid://ccpwwdp2s7tgm" path="res://assets/godotCube.blend" id="2_xg2e3"]
+[ext_resource type="PackedScene" uid="uid://cqpeg405jh688" path="res://assets/nicoCube.blend" id="3_xg2e3"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6754e"]
 
@@ -15,11 +15,11 @@ transform = Transform3D(0.169, 0, 0, 0, 0.145, 0, 0, 0, 0.145, 0, 0, -0.501)
 flip_h = true
 texture = ExtResource("2_6754e")
 
+[node name="nicoCube" parent="." instance=ExtResource("3_xg2e3")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_6754e")
-
-[node name="godotCube" parent="." instance=ExtResource("2_xg2e3")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 
 [node name="DamageBox" type="Area3D" parent="."]
 collision_layer = 0

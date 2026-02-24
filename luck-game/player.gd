@@ -200,6 +200,6 @@ func takeDmg(amount: int, knockback: int, pos: Vector3):
 		health -= amount
 		if knockback != 0:
 			knockbackVelocity = (global_position-pos).normalized()*Vector3(1,0,1)*knockback
-		print("oof took", amount, " dmg, now at", health, " health")
+		print("oof took ", amount, " dmg, now at ", health, " health")
 		if health <= 0:
 			print("ur a ded bozo")
