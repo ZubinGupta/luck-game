@@ -23,3 +23,6 @@ transform = Transform3D(0.503078, 0, 0.0440136, 0, 0.505, 0, -0.0440136, 0, 0.50
 
 [node name="PlayerCamera" type="Camera3D" parent="."]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+
+[node name="InvincibilityTimer" type="Timer" parent="."]
+one_shot = true

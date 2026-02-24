@@ -36,6 +36,8 @@ var knockbackVelocity: Vector3 = Vector3.ZERO
 # weapon
 var weapon: CharacterBody3D = null
 
+var health: int = 10
+
 # misc
 @onready
 var model: Node3D = $PlayerModel # the player's model
@@ -191,3 +193,13 @@ func _physics_process(_delta: float) -> void:
 	Input.warp_mouse(Vector2(300, 300)) # godot mouse stuff is scuffed when locked so i made my own locked ._.
 	# i hate reticles
 	#call_deferred("fixReticle")
+
+
+func takeDmg(amount: int, knockback: int, pos: Vector3):
+	if $InvincibilityTimer.is_stopped():
+		health -= amount
+		if knockback != 0:
+			knockbackVelocity = (global_position-pos).normalized()*Vector3(1,0,1)*knockback
+		print("oof took", amount, " dmg, now at", health, " health")
+		if health <= 0:
+			print("ur a ded bozo")

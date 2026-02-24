@@ -12,6 +12,9 @@ func _physics_process(delta: float) -> void:
 		$Cooldown.start() 
 		active = true
 		thrust_timer = 0.0
+		var list = $Hitbox.get_overlapping_bodies()
+		for i in list:
+			_on_hitbox_body_entered(i)
 	if(active == true):
 		thrust(delta)
 	

@@ -15,3 +15,7 @@ func take_damage(amount: int):
 	health -= amount
 	if(health <= 0):
 		queue_free()
+
+
+func hitPlayer(body: Node3D) -> void:
+	$"../Player".takeDmg(2, 20, global_position)

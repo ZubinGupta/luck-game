@@ -20,3 +20,14 @@ shape = SubResource("BoxShape3D_6754e")
 
 [node name="godotCube" parent="." instance=ExtResource("2_xg2e3")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+
+[node name="DamageBox" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+
+[node name="DamageBoxCollision" type="CollisionShape3D" parent="DamageBox"]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0, 0, 0)
+shape = SubResource("BoxShape3D_6754e")
+
+[connection signal="body_entered" from="DamageBox" to="." method="hitPlayer"]
