@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://dosf00a4s17ah"]
+[gd_scene load_steps=8 format=3 uid="uid://dosf00a4s17ah"]
 
 [ext_resource type="PackedScene" uid="uid://d1j1wx1c0fkfy" path="res://player.tscn" id="1_vgrmv"]
 [ext_resource type="Texture2D" uid="uid://o4q1woicocb7" path="res://icon.svg" id="2_aldhi"]
 [ext_resource type="MeshLibrary" uid="uid://c7jmrijx1432w" path="res://assets/ml1.tres" id="3_aldhi"]
 [ext_resource type="PackedScene" uid="uid://c6tcoddrv5f0d" path="res://characters/godotCube.tscn" id="4_oos0n"]
 [ext_resource type="PackedScene" uid="uid://b8475lrmp27mm" path="res://characters/nikomancer.tscn" id="5_0uj7a"]
+[ext_resource type="PackedScene" uid="uid://cva5syaat45cl" path="res://characters/ninja.tscn" id="6_dbgv3"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_0uj7a"]
 friction = 0.0
@@ -62,3 +63,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6.52339)
 
 [node name="Nikomancer" parent="." instance=ExtResource("5_0uj7a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57.4029, 3.97243, 14.2917)
+
+[node name="Ninja" parent="." instance=ExtResource("6_dbgv3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 186.37, 3.04991, -30.8003)

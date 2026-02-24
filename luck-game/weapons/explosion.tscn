@@ -7,10 +7,10 @@ radius = 3.0
 height = 6.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_23upt"]
-albedo_color = Color(1, 1, 0, 0.607843)
+albedo_color = Color(0.462745, 0.462745, 0, 0.654902)
 emission_enabled = true
-emission = Color(0.945098, 0.521569, 0.223529, 1)
-emission_energy_multiplier = 1.9
+emission = Color(0.593717, 0.281918, 0.0121385, 1)
+emission_energy_multiplier = 1.36
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t4ilm"]
 albedo_color = Color(0.988235, 0.968627, 0.180392, 1)
@@ -22,10 +22,10 @@ emission_energy_multiplier = 1.71
 material = SubResource("StandardMaterial3D_t4ilm")
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_t4ilm"]
-radius = 0.536779
+radius = 0.670879
 
 [node name="Explosion" type="Area3D"]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
 collision_layer = 0
 collision_mask = 5
 script = ExtResource("1_t4ilm")

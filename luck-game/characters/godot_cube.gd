@@ -14,7 +14,6 @@ func _physics_process(_delta: float) -> void:
 	else:
 		velocity.y = 0
 	
-	print(velocity)
 	move_and_slide()
 
 	

@@ -1,6 +1,7 @@
 extends Area3D
 @onready var lifespan = $Lifespan
 
+var damage = 25
 var special: bool = false
 
 func _ready() -> void:
@@ -28,4 +29,4 @@ func onHit(_body: Node3D):
 
 func hitEnemy(body: Node3D) -> void:
 	if(body.has_method("take_damage")):
-			body.take_damage(30)
+			body.take_damage(damage)

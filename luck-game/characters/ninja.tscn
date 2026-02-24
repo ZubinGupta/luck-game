@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://cva5syaat45cl"]
+
+[ext_resource type="Script" uid="uid://c7lq5vxvr0kcp" path="res://characters/ninja.gd" id="1_e81ut"]
+[ext_resource type="PackedScene" uid="uid://cwo8p3aw50tto" path="res://assets/witch.blend" id="2_nj4vs"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ln6ck"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_e81ut"]
+radius = 0.592038
+
+[node name="Ninja" type="CharacterBody3D"]
+script = ExtResource("1_e81ut")
+
+[node name="witch" parent="." instance=ExtResource("2_nj4vs")]
+transform = Transform3D(-0.4, 3.0571e-15, 3.49691e-08, 0, -0.4, 3.49691e-08, 3.49691e-08, 3.49691e-08, 0.4, 0, 0.305, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_ln6ck")
+
+[node name="MoveTimer" type="Timer" parent="."]
+wait_time = 1.5
+autostart = true
+
+[node name="ShotTimer" type="Timer" parent="."]
+wait_time = 1.7
+autostart = true
+
+[node name="DamageBox" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DamageBox"]
+shape = SubResource("CapsuleShape3D_e81ut")
+
+[connection signal="timeout" from="MoveTimer" to="." method="changeDir"]
+[connection signal="timeout" from="ShotTimer" to="." method="throwShuriken"]
+[connection signal="body_entered" from="DamageBox" to="." method="hitPlayer"]
