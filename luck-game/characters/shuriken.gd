@@ -2,7 +2,7 @@ extends CharacterBody3D
 
 var speed = 20
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	velocity = speed * -basis.z
 	move_and_slide()
 	
@@ -10,13 +10,14 @@ func _physics_process(delta: float) -> void:
 	
 	
 func hitPlayer(body: Node3D) -> void:
+	print(body, "shuriken")
 	$"../Player".takeDmg(3, 15, global_position)
-	queue_free()
+	call_deferred("rip")
 
 func take_damage(amount: int):
 	call_deferred("rip")
 	
-func hitWall(body: Node3D) -> void:
+func hitWall(_body: Node3D) -> void:
 	call_deferred("rip")
 
 func lifespan() -> void:

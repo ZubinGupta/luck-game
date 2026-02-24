@@ -9,6 +9,7 @@
 radius = 0.592038
 
 [node name="Ninja" type="CharacterBody3D"]
+collision_layer = 4
 script = ExtResource("1_e81ut")
 
 [node name="witch" parent="." instance=ExtResource("2_nj4vs")]
@@ -27,7 +28,7 @@ autostart = true
 
 [node name="DamageBox" type="Area3D" parent="."]
 collision_layer = 0
-collision_mask = 4
+collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DamageBox"]
 shape = SubResource("CapsuleShape3D_e81ut")

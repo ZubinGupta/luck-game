@@ -3,7 +3,7 @@ extends CharacterBody3D
 var health:int = 40
 var nicoScene: PackedScene = preload("res://characters/godotCube.tscn")
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	var target = global.playerPos
 	target.y = global_position.y
 	look_at(target)
@@ -11,6 +11,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func hitPlayer(body: Node3D) -> void:
+	print(body, "nikomancer")
 	$"../Player".takeDmg(3, 20, global_position)
 
 func take_damage(amount: int):
@@ -23,3 +24,5 @@ func spawnNico() -> void:
 	var nico = nicoScene.instantiate()
 	get_tree().current_scene.add_child(nico)
 	nico.global_position = global_position
+	if get_tree().current_scene.has_method("addEnemy"):
+		get_tree().current_scene.addEnemy(nico)

@@ -33,7 +33,7 @@ monitorable = false
 shape = SubResource("CapsuleShape3D_innun")
 
 [node name="SpawnTimer" type="Timer" parent="."]
-wait_time = 7.0
+wait_time = 3.0
 autostart = true
 
 [connection signal="body_entered" from="Damagebox" to="." method="hitPlayer"]

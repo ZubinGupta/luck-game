@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://28yavpakleys"]
+
+[ext_resource type="PackedScene" uid="uid://cqpeg405jh688" path="res://assets/nicoCube.blend" id="1_i6umq"]
+[ext_resource type="Script" uid="uid://bbnt0asjff8ng" path="res://rooms/spawnPoint.gd" id="1_ni1dv"]
+
+[node name="SpawnPoint" type="Node3D"]
+script = ExtResource("1_ni1dv")
+
+[node name="nicoCube" parent="." instance=ExtResource("1_i6umq")]

@@ -43,7 +43,6 @@ shape = SubResource("CylinderShape3D_mwcub")
 [node name="WallBox" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0441472, 0, 0.0195187)
 collision_layer = 0
-collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="WallBox"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0238647, 0)

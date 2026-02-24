@@ -60,8 +60,8 @@ func _ready() -> void:
 	#fixReticle() #so the ui doesnt flash to the top left on reload
 	assignWeapon("rocketLauncher")
 
-func assignWeapon(name: String) -> void:
-	var loaded: PackedScene = load("res://weapons/"+name+".tscn")
+func assignWeapon(namee: String) -> void:
+	var loaded: PackedScene = load("res://weapons/"+namee+".tscn")
 	weapon = loaded.instantiate()
 	add_child(weapon)
 

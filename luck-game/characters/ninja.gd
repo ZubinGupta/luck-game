@@ -5,7 +5,7 @@ var direction = 1
 var speed = 7
 var shuriken = preload("res://characters/shuriken.tscn")
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	var target = global.playerPos
 	target.y = global_position.y
 	look_at(target)
@@ -25,7 +25,7 @@ func changeDir() -> void:
 	direction *= -1
 
 func throwShuriken() -> void:
-	print("trying to throw shuriken")
+	#print("trying to throw shuriken")
 	if (global_position-$"../Player".global_position).length() < 60:
 		var projectiles = shuriken.instantiate()
 		get_tree().current_scene.add_child(projectiles)
@@ -33,4 +33,5 @@ func throwShuriken() -> void:
 		projectiles.rotation = rotation
 
 func hitPlayer(body: Node3D) -> void:
+	print(body, "ninja")
 	$"../Player".takeDmg(3, 20, global_position)

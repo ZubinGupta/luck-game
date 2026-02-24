@@ -1,5 +1,5 @@
 extends CharacterBody3D
-const SPEED = 2
+const SPEED = 16
 var health := 10
 
 func _physics_process(_delta: float) -> void:
@@ -25,4 +25,5 @@ func take_damage(amount: int):
 
 
 func hitPlayer(body: Node3D) -> void:
+	print(body, "nicocube")
 	$"../Player".takeDmg(2, 20, global_position)
