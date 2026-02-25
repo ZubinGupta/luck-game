@@ -31,7 +31,3 @@ func throwShuriken() -> void:
 		get_tree().current_scene.add_child(projectiles)
 		projectiles.global_position = global_position
 		projectiles.rotation = rotation
-
-func hitPlayer(body: Node3D) -> void:
-	print(body, "ninja")
-	$"../Player".takeDmg(3, 20, global_position)
