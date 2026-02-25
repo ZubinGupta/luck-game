@@ -7,3 +7,4 @@
 script = ExtResource("1_ni1dv")
 
 [node name="nicoCube" parent="." instance=ExtResource("1_i6umq")]
+visible = false
