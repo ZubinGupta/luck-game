@@ -10,7 +10,9 @@ script = ExtResource("1_tnl5s")
 transform = Transform3D(-1.31134e-09, -0.03, 0, -0.03, 1.31134e-09, 2.62268e-09, -2.62268e-09, 1.14641e-16, -0.03, -0.630283, 0.872, 0.14643)
 
 [node name="ArrowCooldown" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
 
-[node name="PullCooldown" type="Timer" parent="."]
-
-[connection signal="timeout" from="ArrowCooldown" to="." method="_on_arrow_cooldown_timeout"]
+[node name="SpecialCooldown" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
