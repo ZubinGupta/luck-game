@@ -1,7 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://d1j1wx1c0fkfy"]
+[gd_scene load_steps=9 format=3 uid="uid://d1j1wx1c0fkfy"]
 
 [ext_resource type="Script" uid="uid://btq87o1xa24wf" path="res://player.gd" id="1_4flbx"]
 [ext_resource type="PackedScene" uid="uid://ccva1px67abyd" path="res://assets/hooman.blend" id="2_onrkg"]
+[ext_resource type="Texture2D" uid="uid://dkkmmwvh1trxv" path="res://assets/textures/healthBarEmpty.png" id="3_1jxqw"]
+[ext_resource type="Texture2D" uid="uid://cffvl5k0t0rh7" path="res://assets/textures/healthbar.png" id="4_dw050"]
+[ext_resource type="Texture2D" uid="uid://cccviae62k3lc" path="res://assets/textures/CD.png" id="5_b26j0"]
+[ext_resource type="Texture2D" uid="uid://8oo8jxpv4e0j" path="res://assets/textures/weaponCD.png" id="6_n7ghd"]
+[ext_resource type="Texture2D" uid="uid://dbwdej40lsq43" path="res://assets/textures/specialCD.png" id="7_nvl01"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_onrkg"]
 
@@ -26,3 +31,67 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 
 
 [node name="InvincibilityTimer" type="Timer" parent="."]
 one_shot = true
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Health" type="TextureProgressBar" parent="UI"]
+offset_left = 8.0
+offset_top = 47.0
+offset_right = 395.0
+offset_bottom = 74.0
+max_value = 10.0
+step = 0.01
+value = 10.0
+texture_under = ExtResource("3_1jxqw")
+texture_progress = ExtResource("4_dw050")
+
+[node name="Attack" type="TextureProgressBar" parent="UI"]
+offset_left = 9.0
+offset_top = 110.0
+offset_right = 476.0
+offset_bottom = 165.0
+max_value = 10.0
+step = 0.01
+value = 10.0
+texture_under = ExtResource("5_b26j0")
+texture_progress = ExtResource("6_n7ghd")
+
+[node name="Special" type="TextureProgressBar" parent="UI"]
+offset_left = 9.0
+offset_top = 196.0
+offset_right = 476.0
+offset_bottom = 251.0
+max_value = 10.0
+step = 0.01
+value = 10.0
+texture_under = ExtResource("5_b26j0")
+texture_progress = ExtResource("7_nvl01")
+
+[node name="Label" type="Label" parent="UI"]
+offset_left = 35.0
+offset_top = 3.0
+offset_right = 87.0
+offset_bottom = 52.0
+theme_override_font_sizes/font_size = 30
+text = "Health
+"
+
+[node name="Label2" type="Label" parent="UI"]
+offset_left = 9.0
+offset_top = 83.0
+offset_right = 105.0
+offset_bottom = 170.0
+theme_override_font_sizes/font_size = 30
+text = "Attack
+
+"
+
+[node name="Label3" type="Label" parent="UI"]
+offset_left = 10.0
+offset_top = 164.0
+offset_right = 106.0
+offset_bottom = 251.0
+theme_override_font_sizes/font_size = 30
+text = "Special
+
+"

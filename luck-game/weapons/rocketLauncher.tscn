@@ -18,9 +18,9 @@ transform = Transform3D(0.3, -5.35552e-05, -7.45896e-06, 5.35501e-05, 0.3, -0.00
 shape = SubResource("BoxShape3D_24252")
 
 [node name="AttackTimer" type="Timer" parent="."]
-wait_time = 1.5
+wait_time = 2.0
 one_shot = true
 
 [node name="SpecialTimer" type="Timer" parent="."]
-wait_time = 2.0
+wait_time = 2.5
 one_shot = true

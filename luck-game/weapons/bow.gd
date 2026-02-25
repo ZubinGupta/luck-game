@@ -6,6 +6,11 @@ func _physics_process(delta: float) -> void:
 	
 	rotate_x(basis.z.signed_angle_to(-$"../PlayerCamera".basis.z, Vector3.RIGHT))
 	
+	$"../UI/Attack".max_value = .5
+	$"../UI/Attack".value = .5-$ArrowCooldown.time_left
+
+	$"../UI/Special".max_value = 2
+	$"../UI/Special".value = 2-$SpecialCooldown.time_left
 
 	if Input.is_action_just_pressed("attack") && $ArrowCooldown.is_stopped():
 		var arrow = attack.instantiate()

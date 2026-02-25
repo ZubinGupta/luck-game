@@ -11,6 +11,13 @@ var is_dashing : bool = false
 var dash_direction : Vector3 = Vector3.ZERO
 
 func _physics_process(delta: float) -> void:
+	
+	$"../UI/Attack".max_value = .2
+	$"../UI/Attack".value = .2-$Cooldown.time_left
+
+	$"../UI/Special".max_value = 3
+	$"../UI/Special".value = 3-$Special.time_left
+
 	rotate_x(basis.z.signed_angle_to(-$"../PlayerCamera".basis.z, Vector3.RIGHT))
 	
 	if Input.is_action_just_pressed("attack") && $Cooldown.is_stopped(): 

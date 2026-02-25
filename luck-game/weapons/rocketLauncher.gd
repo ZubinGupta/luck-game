@@ -4,6 +4,14 @@ var attack: PackedScene = preload("res://weapons/rocketAttack.tscn")
 
 func _physics_process(delta: float) -> void:
 	
+	$"../UI/Attack".max_value = 2
+	$"../UI/Attack".value = 2-$AttackTimer.time_left
+
+	
+	$"../UI/Special".max_value = 2.5
+	$"../UI/Special".value = 2.5-$SpecialTimer.time_left
+
+	
 	rotate_x(basis.z.signed_angle_to(-$"../PlayerCamera".basis.z, Vector3.RIGHT))
 	
 	if Input.is_action_just_pressed("attack") && $AttackTimer.is_stopped():

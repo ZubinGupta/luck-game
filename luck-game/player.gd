@@ -56,6 +56,8 @@ func _ready() -> void:
 	camHorRay.target_position = Vector3(camTargetPos.x, 0, 0)
 	health+=global.healthBuff
 	speed += global.speedBuff
+	$UI/Health.max_value = health
+	$UI/Health.value = health
 	
 	#Put the reticle in the center of the screen
 	#reticle.position = get_viewport().size / 2
@@ -196,6 +198,9 @@ func _physics_process(_delta: float) -> void:
 	Input.warp_mouse(Vector2(300, 300)) # godot mouse stuff is scuffed when locked so i made my own locked ._.
 	# i hate reticles
 	#call_deferred("fixReticle")
+	
+	
+	$UI/Health.value = health
 
 
 func takeDmg(amount: int, knockback: int, pos: Vector3):
