@@ -2,7 +2,7 @@ extends CharacterBody3D
 
 var health = 30
 var direction = 1
-var speed = 7
+var speed = 6
 var shuriken = preload("res://characters/shuriken.tscn")
 
 func _physics_process(_delta: float) -> void:

@@ -1,21 +1,24 @@
-[gd_scene load_steps=3 format=3 uid="uid://d3aadksx58255"]
+[gd_scene load_steps=4 format=3 uid="uid://d3aadksx58255"]
 
 [ext_resource type="Texture2D" uid="uid://ce271nbx0flu4" path="res://assets/textures/titlescreen.webp" id="1_sf2e2"]
 [ext_resource type="Script" uid="uid://bctbgbr7kvmjl" path="res://titleScreen.gd" id="1_tic01"]
+[ext_resource type="PackedScene" uid="uid://ccva1px67abyd" path="res://assets/hooman.blend" id="3_3b4xv"]
 
-[node name="TitleScreen" type="Node2D"]
+[node name="TitleScreen" type="Node3D"]
 script = ExtResource("1_tic01")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(491, 294)
-scale = Vector2(1.56982, 1.56982)
+[node name="Sprite3D" type="Sprite3D" parent="."]
 texture = ExtResource("1_sf2e2")
 
-[node name="Button" type="Button" parent="."]
-offset_left = 423.0
-offset_top = 283.0
-offset_right = 639.0
-offset_bottom = 467.0
-flat = true
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.698179, -0.0742739, 2.52609)
 
-[connection signal="pressed" from="Button" to="." method="playButton"]
+[node name="hooman" parent="." instance=ExtResource("3_3b4xv")]
+transform = Transform3D(0.647215, 0, 0.26667, 0, 0.7, 0, -0.26667, 0, 0.647215, -1.28181, -1.03245, 0.48652)
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.932016, -0.202914, 0.300287, 0.000101695, 0.828714, 0.559673, -0.362418, -0.521593, 0.772395, 20.3523, -11.9962, 42.3)

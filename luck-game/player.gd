@@ -211,3 +211,7 @@ func takeDmg(amount: int, knockback: int, pos: Vector3):
 		print("oof took ", amount, " dmg, now at ", health, " health")
 		if health <= 0:
 			print("ur a ded bozo")
+			call_deferred("death")
+			
+func death():
+			get_tree().change_scene_to_file("res://death.tscn")

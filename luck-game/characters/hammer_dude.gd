@@ -51,4 +51,6 @@ func take_damage(amount: int):
 func hitPlayer(body: Node3D) -> void:
 	if(active):
 		print(body, "hammerDude")
-		$"../Player".takeDmg(7, 20, global_position)
+		$"../Player".takeDmg(7, 60, global_position)
+	else:
+		$"../Player".takeDmg(0, 20, global_position)

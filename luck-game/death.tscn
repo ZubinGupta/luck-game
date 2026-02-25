@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://dnlubl2c4i7dv"]
+
+[ext_resource type="Script" uid="uid://dk7i0wdste4ir" path="res://death.gd" id="1_4868a"]
+[ext_resource type="Texture2D" uid="uid://dsjknqik881gf" path="res://assets/textures/death.png" id="1_lf77f"]
+[ext_resource type="PackedScene" uid="uid://ccva1px67abyd" path="res://assets/hooman.blend" id="2_531me"]
+[ext_resource type="PackedScene" uid="uid://dhiipn4e002qv" path="res://assets/sword.blend" id="3_531me"]
+
+[node name="Death" type="Node3D"]
+script = ExtResource("1_4868a")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+texture = ExtResource("1_lf77f")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.92773)
+
+[node name="hooman" parent="." instance=ExtResource("2_531me")]
+transform = Transform3D(0.00974346, 0.621601, -0.321741, -0.563347, 0.197925, 0.365329, 0.415385, 0.253846, 0.503008, 1.08009, -1.17525, 0.868487)
+
+[node name="sword" parent="hooman" instance=ExtResource("3_531me")]
+transform = Transform3D(0.121544, 0.132877, 0.239939, -0.269854, 0.0110006, 0.130605, 0.0490499, -0.268743, 0.123982, -0.399607, 0.793584, 1.2057)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.849476, 0.295227, -0.4373, 0.000101724, 0.828714, 0.559673, 0.527627, -0.475473, 0.703943, -34.7822, 26.47, 42.3)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 4.0
+one_shot = true
+autostart = true
+
+[node name="Rooms" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.15146, -0.528795, 0.461263)
+modulate = Color(0.476382, 0.00471513, 0.486014, 1)
+text = "You Survived x rooms"
+font_size = 50
