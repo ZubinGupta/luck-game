@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://c5qismj1fkk4o"]
 
-[ext_resource type="PackedScene" uid="uid://c07svihtsptdf" path="res://assets/boomerang.glb" id="1_74hrk"]
 [ext_resource type="Script" uid="uid://dk68box4q0xof" path="res://characters/shuriken.gd" id="1_k0lxq"]
+[ext_resource type="PackedScene" uid="uid://cj8ly4m3jh305" path="res://assets/shuriken.blend" id="2_k0lxq"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_k0lxq"]
 size = Vector3(0.375977, 0.224548, 0.467773)
@@ -15,17 +15,8 @@ script = ExtResource("1_k0lxq")
 
 [node name="Model" type="Node3D" parent="."]
 
-[node name="boomerang" parent="Model" instance=ExtResource("1_74hrk")]
-transform = Transform3D(0.025, 0, 0, 0, 0.025, 0, 0, 0, 0.025, -0.47244, 0, 0.393151)
-
-[node name="boomerang2" parent="Model" instance=ExtResource("1_74hrk")]
-transform = Transform3D(-0.025, 0, -2.18557e-09, 0, 0.025, 0, 2.18557e-09, 0, -0.025, 0.477872, 0, -0.374204)
-
-[node name="boomerang3" parent="Model" instance=ExtResource("1_74hrk")]
-transform = Transform3D(-1.09278e-09, 0, 0.025, 0, 0.025, 0, -0.025, 0, -1.09278e-09, 0.36518, 0, 0.507974)
-
-[node name="boomerang4" parent="Model" instance=ExtResource("1_74hrk")]
-transform = Transform3D(-1.09278e-09, 0, -0.025, 0, 0.025, 0, 0.025, 0, -1.09278e-09, -0.377912, 0, -0.544735)
+[node name="shuriken" parent="Model" instance=ExtResource("2_k0lxq")]
+transform = Transform3D(0.17, 0, 0, 0, 0.17, 0, 0, 0, 0.17, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0279729, 0.0204163, 0.014399)

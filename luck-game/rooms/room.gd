@@ -5,7 +5,7 @@ var spawnPoints = []
 var started = false
 
 func _ready() -> void:
-	startRoom(2)
+	startRoom(global.enemyNum)
 
 func _physics_process(_delta: float) -> void:
 	if started:
@@ -14,7 +14,9 @@ func _physics_process(_delta: float) -> void:
 			if i != null:
 				won = false
 		if won:
-			global.beatRoom()
+			if $Timer.is_stopped():
+				$Timer.start()
+			
 
 func startRoom(num: int): # limit is 10, all rooms shouldn't have less than 10 spawns
 	for i in num:
@@ -28,3 +30,6 @@ func addSpawnpoint(point: Node3D):
 func addEnemy(enemy: CharacterBody3D):
 	started = true
 	enemyList.append(enemy)
+	
+func win():
+	global.beatRoom()
