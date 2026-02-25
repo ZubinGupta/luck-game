@@ -11,15 +11,15 @@ collision_layer = 4
 script = ExtResource("1_xg2e3")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform3D(0.219, 0, 0, 0, 0.188, 0, 0, 0, 0.188, 0, 0, -0.657409)
+transform = Transform3D(0.234, 0, 0, 0, 0.201, 0, 0, 0, 0.201, 0, 0, -0.701636)
 flip_h = true
 texture = ExtResource("2_6754e")
 
 [node name="nicoCube" parent="." instance=ExtResource("3_xg2e3")]
-transform = Transform3D(2.955, 0, 0, 0, 2.955, 0, 0, 0, 2.955, 0, 0, 0)
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1.335, 0, 0, 0, 1.335, 0, 0, 0, 1.335, 0, 0, 0)
+transform = Transform3D(1.425, 0, 0, 0, 1.425, 0, 0, 0, 1.425, 0, 0, 0)
 shape = SubResource("BoxShape3D_6754e")
 
 [node name="DamageBox" type="Area3D" parent="."]
@@ -28,7 +28,7 @@ collision_mask = 2
 monitorable = false
 
 [node name="DamageBoxCollision" type="CollisionShape3D" parent="DamageBox"]
-transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, 0, 0, 0)
+transform = Transform3D(1.475, 0, 0, 0, 1.475, 0, 0, 0, 1.475, 0, 0, 0)
 shape = SubResource("BoxShape3D_6754e")
 
 [connection signal="body_entered" from="DamageBox" to="." method="hitPlayer"]

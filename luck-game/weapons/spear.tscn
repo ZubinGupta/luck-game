@@ -28,11 +28,15 @@ collision_layer = 0
 collision_mask = 4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox"]
-transform = Transform3D(0.36, 0, 0, 0, -1.57361e-08, -0.36, 0, 0.36, -1.57361e-08, -1.10328, 0.117469, 1.20608)
+transform = Transform3D(0.67, 0, 0, 0, -2.92866e-08, -0.67, 0, 0.67, -2.92866e-08, -0.708044, 0.117469, 0.998808)
 shape = SubResource("CapsuleShape3D_qwioj")
 
 [node name="Cooldown" type="Timer" parent="."]
-wait_time = 0.3
+wait_time = 0.2
+one_shot = true
+
+[node name="Special" type="Timer" parent="."]
+wait_time = 3.0
 one_shot = true
 
 [connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]

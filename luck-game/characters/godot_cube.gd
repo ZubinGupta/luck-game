@@ -26,4 +26,4 @@ func take_damage(amount: int):
 
 func hitPlayer(body: Node3D) -> void:
 	print(body, "nicocube")
-	$"../Player".takeDmg(2, 20, global_position)
+	$"../Player".takeDmg(1, 20, global_position)

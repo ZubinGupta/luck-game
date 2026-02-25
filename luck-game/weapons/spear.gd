@@ -1,9 +1,14 @@
 extends CharacterBody3D
 var active : bool = false
-var thrust_speed : float = 30.0
+var thrust_speed : float = 45.0
 var thrust_timer : float = 0.0
 var thrust_time : float = 0.1
 
+var dash_speed : float = 45.0
+var dash_time : float = 0.15
+var dash_timer : float = 0.0
+var is_dashing : bool = false
+var dash_direction : Vector3 = Vector3.ZERO
 
 func _physics_process(delta: float) -> void:
 	rotate_x(basis.z.signed_angle_to(-$"../PlayerCamera".basis.z, Vector3.RIGHT))
@@ -17,6 +22,10 @@ func _physics_process(delta: float) -> void:
 			_on_hitbox_body_entered(i)
 	if(active == true):
 		thrust(delta)
+	if Input.is_action_just_pressed("special") && $Special.is_stopped(): 
+		start_dash()
+	if(is_dashing):
+		handle_dash(delta)
 	
 	move_and_slide()
 func thrust(delta: float):
@@ -34,3 +43,22 @@ func _on_hitbox_body_entered(body: Node3D) -> void:
 	if(body.has_method("take_damage") && active == true):
 		body.take_damage(15)
 	
+	if(body.has_method("take_damage") && is_dashing == true):
+		body.take_damage(15)
+	
+func start_dash():
+	is_dashing = true
+	$"..".invincible = true
+	dash_timer = 0.0
+	dash_direction = global_transform.basis.z.normalized()
+	$Special.start()
+	
+func handle_dash(delta: float):
+	dash_timer += delta
+	
+	if dash_timer < dash_time:
+		$"..".knockbackVelocity = dash_direction * dash_speed
+		$"..".knockbackVelocity.y = 0  
+	else:
+		is_dashing = false
+		$"..".invincible = false

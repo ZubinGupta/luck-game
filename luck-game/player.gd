@@ -32,6 +32,7 @@ var gravity: Vector3 = Vector3(0, -1, 0) # how much gravity is there
 var useGravity: bool = true # if gravity is being added to the player's velocity
 #var bowSlowdown: float = 1 # a percentage (1=normal, anything else is slower)
 var knockbackVelocity: Vector3 = Vector3.ZERO
+var invincible : bool = false
 
 # weapon
 var weapon: CharacterBody3D = null
@@ -198,7 +199,7 @@ func _physics_process(_delta: float) -> void:
 
 
 func takeDmg(amount: int, knockback: int, pos: Vector3):
-	if $InvincibilityTimer.is_stopped():
+	if $InvincibilityTimer.is_stopped() and invincible == false:
 		health -= amount
 		if knockback != 0:
 			knockbackVelocity = (global_position-pos).normalized()*Vector3(1,0,1)*knockback
