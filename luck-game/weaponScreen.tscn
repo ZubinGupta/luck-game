@@ -1,0 +1,54 @@
+[gd_scene load_steps=10 format=3 uid="uid://dttskieutmo20"]
+
+[ext_resource type="Texture2D" uid="uid://bpsijnaj2y8rj" path="res://assets/textures/Weaponuse.webp" id="1_fbqya"]
+[ext_resource type="Script" uid="uid://cl071e51shy76" path="res://weaponScreen.gd" id="1_vs8sk"]
+[ext_resource type="PackedScene" uid="uid://c07svihtsptdf" path="res://assets/boomerang.glb" id="2_3sa55"]
+[ext_resource type="PackedScene" uid="uid://w5yfiuslomn" path="res://assets/bow.glb" id="3_vs8sk"]
+[ext_resource type="PackedScene" uid="uid://yvsd8nbnmy3e" path="res://assets/arrow.glb" id="4_lsekr"]
+[ext_resource type="PackedScene" uid="uid://5vkmuwtteeaq" path="res://assets/spear.blend" id="5_atbuy"]
+[ext_resource type="PackedScene" uid="uid://dhiipn4e002qv" path="res://assets/sword.blend" id="6_15ier"]
+[ext_resource type="PackedScene" uid="uid://jnvyr4skmaej" path="res://assets/rocketLauncher.blend" id="7_bdyk4"]
+[ext_resource type="PackedScene" uid="uid://c4jfxi8adhu31" path="res://assets/rocket.blend" id="8_prt4k"]
+
+[node name="WeaponScreen" type="Node3D"]
+script = ExtResource("1_vs8sk")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+texture = ExtResource("1_fbqya")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.227676, 0, 1.97254)
+
+[node name="boomerang" parent="." instance=ExtResource("2_3sa55")]
+transform = Transform3D(0.0375471, 1.44328e-09, 0.0330184, 0.0330184, -1.64123e-09, -0.0375471, 0, 0.05, -2.18557e-09, 0.328997, -0.968495, 0.0739675)
+visible = false
+
+[node name="bow" parent="." instance=ExtResource("3_vs8sk")]
+transform = Transform3D(0.0202251, 8.64389e-10, 0.0345101, 0.0345101, -1.50848e-09, -0.0202251, 8.64389e-10, 0.04, -1.50848e-09, 0.945049, -1.20439, 0.0739675)
+visible = false
+
+[node name="arrow" parent="bow" instance=ExtResource("4_lsekr")]
+transform = Transform3D(1, -1.77636e-15, -8.14948e-16, 7.10543e-15, 1, -3.55271e-15, -8.14947e-16, 1.06581e-14, 1, 24.4975, -1.54972e-06, -25.6716)
+
+[node name="spear" parent="." instance=ExtResource("5_atbuy")]
+transform = Transform3D(0.184478, -0.168724, 0, 0.168724, 0.184478, 0, 0, 0, 0.25, 1.38297, -1.00454, 0)
+visible = false
+
+[node name="sword" parent="." instance=ExtResource("6_15ier")]
+transform = Transform3D(0.25827, -0.236213, 0, 0.236213, 0.25827, 0, 0, 0, 0.35, 1.47499, -1.09159, 0)
+visible = false
+
+[node name="rocketLauncher" parent="." instance=ExtResource("7_bdyk4")]
+transform = Transform3D(0.0763097, 0, -0.290132, 0, 0.3, 0, 0.290132, 0, 0.0763097, 1.05266, -0.33781, 0.490347)
+visible = false
+
+[node name="rocket" parent="rocketLauncher" instance=ExtResource("8_prt4k")]
+transform = Transform3D(0.7, 0, 1.49012e-08, 0, 0.7, 0, -1.49012e-08, 0, 0.7, -1.43731, -0.427426, 5.46469)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.849476, 0.295227, -0.4373, 0.000101724, 0.828714, 0.559673, 0.527627, -0.475473, 0.703943, -34.7822, 26.47, 42.3)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+autostart = true

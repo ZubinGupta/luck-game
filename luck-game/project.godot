@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="luck-game"
-run/main_scene="uid://ckvtnvye6iwrx"
+run/main_scene="uid://d3aadksx58255"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
