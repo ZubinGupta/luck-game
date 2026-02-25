@@ -53,6 +53,8 @@ func _ready() -> void:
 	#	music.play()
 	camVertRay.target_position = Vector3(0, camTargetPos.y, 0)
 	camHorRay.target_position = Vector3(camTargetPos.x, 0, 0)
+	health+=global.healthBuff
+	speed += global.speedBuff
 	
 	#Put the reticle in the center of the screen
 	#reticle.position = get_viewport().size / 2

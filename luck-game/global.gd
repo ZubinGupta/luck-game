@@ -7,11 +7,22 @@ var playerPos := Vector3(0,0,0);
 var rooms = 1
 var curWeapon = "rocketLauncher"
 var weapons = ["bow", "rocketLauncher", "spear"]
+var speedBuff = 0
+var healthBuff = 0
+var enemyNum = 2
 
 var enemies = [preload("res://characters/nikomancer.tscn"), preload("res://characters/ninja.tscn"), preload("res://characters/lilBomber.tscn"),preload("res://characters/hammerDude.tscn")]
 
 func beatRoom():
 	print("you beat the room :D")
+	var num = randi_range(0,1)
+	if num==1:
+		healthBuff += 3
+	elif num==0:
+		speedBuff += 3
+	enemyNum+=1
+	if enemyNum > 10:
+		enemyNum = 10
 	nextWeapon()
 
 func nextWeapon():

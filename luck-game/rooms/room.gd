@@ -5,7 +5,7 @@ var spawnPoints = []
 var started = false
 
 func _ready() -> void:
-	startRoom(2)
+	startRoom(global.enemyNum)
 
 func _physics_process(_delta: float) -> void:
 	if started:
