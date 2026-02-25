@@ -5,11 +5,11 @@
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ln6ck"]
 radius = 0.284088
-height = 1.74361
+height = 2.46011
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_e81ut"]
 radius = 0.372803
-height = 1.71409
+height = 2.45752
 
 [node name="Ninja" type="CharacterBody3D"]
 collision_layer = 4
@@ -34,7 +34,7 @@ collision_mask = 2
 shape = SubResource("CapsuleShape3D_e81ut")
 
 [node name="ninja" parent="." instance=ExtResource("2_e81ut")]
-transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
+transform = Transform3D(-0.6, 0, -5.24537e-08, 0, 0.6, 0, 5.24537e-08, 0, -0.6, 0, 0, 0)
 
 [connection signal="timeout" from="MoveTimer" to="." method="changeDir"]
 [connection signal="timeout" from="ShotTimer" to="." method="throwShuriken"]
